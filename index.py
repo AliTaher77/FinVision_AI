@@ -11,7 +11,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/health")
+@app.get("/api/health")
 def health():
     return {
         "status": "ok",
@@ -19,7 +19,7 @@ def health():
         "version": "v1"
     }
 
-@app.get("/risk-summary")
+@app.get("/api/risk-summary")
 def risk_summary():
     return {
         "asset": "USD/YER",
