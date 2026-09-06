@@ -31,3 +31,8 @@ curl http://localhost:8000/health
 ## ملاحظة
 هذه الحزمة مبنية من الهيكل والمحتوى التقني الظاهرين في عرض FinVision AI المتوفر في المحادثة.
 ملف النموذج الموجود تجريبي/Placeholder، وليس نموذجًا ماليًا حقيقيًا.
+
+
+## Cloud Deployment
+The Dockerfile is configured to build the FastAPI service directly from the project root.
+The public health endpoint is `/health`, and the educational risk endpoint is `/risk-summary`.
