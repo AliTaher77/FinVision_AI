@@ -1,38 +1,14 @@
-# FinVision AI
+# FinVision AI — Real Functional Educational Prototype
 
-نسخة تعليمية جاهزة للتغليف والاختبار والنشر عبر Docker.
+FinVision AI is a functional educational prototype for financial-risk analysis. It fetches public market/FX data, computes technical indicators (SMA, RSI, volatility and momentum), reads Google News RSS headlines for simple sentiment scoring, and exposes the analysis through FastAPI.
 
-## التشغيل المحلي
+## Endpoints
+- `/` — interactive dashboard
+- `/health` — service health
+- `/risk-summary?asset=USD/YER` — live analysis
+- `/risk-summary?asset=BTC/USD` — live market analysis
+- `/risk-summary?asset=GOLD` — live gold futures analysis
+- `/risk-summary?asset=AAPL` — live equity analysis
 
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-اختبار:
-- http://localhost:8000/health
-- http://localhost:8000/risk-summary
-
-## Docker
-
-من جذر المشروع:
-
-```bash
-docker build -t finvision-ai:v1 .
-docker run -d --name finvision-container -p 8000:8000 finvision-ai:v1
-```
-
-ثم:
-```bash
-curl http://localhost:8000/health
-```
-
-## ملاحظة
-هذه الحزمة مبنية من الهيكل والمحتوى التقني الظاهرين في عرض FinVision AI المتوفر في المحادثة.
-ملف النموذج الموجود تجريبي/Placeholder، وليس نموذجًا ماليًا حقيقيًا.
-
-
-## Cloud Deployment
-The Dockerfile is configured to build the FastAPI service directly from the project root.
-The public health endpoint is `/health`, and the educational risk endpoint is `/risk-summary`.
+## Important
+This is a real working prototype, but it is not a production financial-advisory system. Data comes from public web endpoints and can be delayed, unavailable, or rate-limited. Results are educational and not investment advice.
