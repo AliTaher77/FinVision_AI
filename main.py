@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 app = FastAPI(title="FinVision AI", version="v1")
+
+FRONTEND_FILE = "/app/frontend/dashboard_mockup/index.html"
 
 app.add_middleware(
     CORSMiddleware,
@@ -10,6 +13,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+def home():
+    return FileResponse(FRONTEND_FILE)
 
 @app.get("/health")
 def health():
